@@ -1,3 +1,5 @@
+
+//Checks that the JS is correctly set up.
 console.log("Up and running!");
 
 //Card names
@@ -23,8 +25,11 @@ var cards = [
 	cardImage: "images/king-of-diamonds.png"
 }
 ];
+
+//This array contains the cards currently selected.
 var cardsInPlay = [];
 
+//Show if you have found a match or not using a dialog box.
 var checkForMatch = function() {
 	if (cardsInPlay.length === 2) {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -36,6 +41,7 @@ var checkForMatch = function() {
 }
 };
 
+//This shows what happens when a user clicks a card.
 var flipCard = function() {
 	var cardId = this.getAttribute('data-id');
 	this.setAttribute('src', cards[cardId].cardImage);
@@ -46,6 +52,7 @@ var flipCard = function() {
 	checkForMatch();
 };
 
+//Defines the function that adds the board to the page.
 var createBoard = function(){
 	for (var i = 0; i < cards.length; i++) {
 		var cardElement = document.createElement('img');
@@ -56,4 +63,24 @@ var createBoard = function(){
 	}
 };
 
+//Calls the function that creates a board.
 createBoard();
+
+/*Pseudocode for reset button:
+	
+	When user clicks reset button
+	if cardsInPlay length is greater than zero
+
+	  Reset cardsInPlay
+	  Remove current board
+	  Create new board
+
+	else alert you havent started yet
+*/
+
+//As I couldn't get reset button to work as per the above pseudocode, the below makes the button simply refresh the page:
+var resetBoard = function(){
+	window.location.reload();
+}
+var resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', resetBoard);

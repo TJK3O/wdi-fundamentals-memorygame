@@ -62,6 +62,15 @@ p {
 	margin-top:36px;
 }
 
+#resetButton {
+	color: #FFFFFF;
+	border: #00A6B3 3px solid;
+	border-radius: 5px;
+	background-color: #00A6B3;
+	width:10%;
+	margin: 0 auto;
+}
+
 footer {
 	text-transform: uppercase;
 	padding: 0 20px;
